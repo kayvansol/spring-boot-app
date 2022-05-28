@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
-  @GetMapping("/all")
+  @GetMapping(value = "/all",produces = "text/plain;charset=UTF-8")
   public String allAccess() {
     return "محتوای عمومی.";
   }
 
-  @GetMapping("/user")
+  @GetMapping(value = "/user",produces = "text/plain;charset=UTF-8")
   @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
   public String userAccess() {
     return "محتوای کاربر.";
   }
 
-  @GetMapping("/mod")
+  @GetMapping(value = "/mod",produces = "text/plain;charset=UTF-8")
   @PreAuthorize("hasRole('MODERATOR')")
   public String moderatorAccess() {
     return "صفحه ی مدیر.";
   }
 
-  @GetMapping("/admin")
+  @GetMapping(value = "/admin",produces = "text/plain;charset=UTF-8")
   @PreAuthorize("hasRole('ADMIN')")
   public String adminAccess() {
     return "صفحه مدیر کل.";
