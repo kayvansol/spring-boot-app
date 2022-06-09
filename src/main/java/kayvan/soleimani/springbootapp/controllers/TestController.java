@@ -13,25 +13,25 @@ public class TestController {
 
   @GetMapping(value = "/all",produces = "text/plain;charset=UTF-8")
   public String allAccess() {
-    return "محتوای عمومی.";
+    return "محتوای عمومی";
   }
 
   @GetMapping(value = "/user",produces = "text/plain;charset=UTF-8")
   @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
   public String userAccess() {
-    return "محتوای کاربر وارد شده.";
+    return "محتوای کاربر وارد شده";
   }
 
   @GetMapping(value = "/mod",produces = "text/plain;charset=UTF-8")
   @PreAuthorize("hasRole('MODERATOR')")
   public String moderatorAccess() {
-    return "صفحه ی مدیر.";
+    return "صفحه ی مدیر";
   }
 
   @GetMapping(value = "/admin",produces = "text/plain;charset=UTF-8")
   @PreAuthorize("hasRole('ADMIN')")
   public String adminAccess() {
-    return "صفحه ادمین کل.";
+    return "صفحه ادمین کل";
   }
 
 }
